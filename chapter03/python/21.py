@@ -9,7 +9,7 @@ def main():
   
   for article in get_filtered_articles(u"イギリス"):
     print "article: {}".format(article["title"].encode("utf8"))
-    categories = filter(lambda x: re_category.match(x), article["text"].split("\n"))
+    categories = filter(lambda x: re_category.search(x), article["text"].split("\n"))
     for category in categories:
       print category
 

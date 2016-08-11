@@ -11,9 +11,9 @@ def main():
 
   for article in get_filtered_articles(u"イギリス"):
     print "article: {}".format(article["title"].encode("utf8"))
-    infos = dict([x.group(1, 2) for x in re_info.finditer(article["text"])])
+    info_dic = {x.group(1): x.group(2) for x in re_info.finditer(article["text"])}
 
-  imageinfo_url = "https://commons.wikimedia.org/w/api.php?action=query&titles=File:{}&prop=imageinfo&&iiprop=url&format=json".format(infos[u"国旗画像"])
+  imageinfo_url = "https://commons.wikimedia.org/w/api.php?action=query&titles=File:{}&prop=imageinfo&&iiprop=url&format=json".format(info_dic[u"国旗画像"])
   response = requests.get(imageinfo_url).json()
   print response['query']['pages']['347935']['imageinfo'][0]['url']
 

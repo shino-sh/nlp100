@@ -19,8 +19,8 @@ def main():
     _article = re.sub(re_markup1,   "",    _article)
     _article = re.sub(re_markup2,   "",    _article)
     _article = re.sub(re_language,  r'\1', _article)
-    infos = [x.group(1, 2) for x in re_info.finditer(_article)]
-    for k, v in dict(infos).items():
+    info_dic = {x.group(1): x.group(2) for x in re_info.finditer(_article)}
+    for k, v in info_dic.items():
       print k, v
 
 if __name__ == '__main__':

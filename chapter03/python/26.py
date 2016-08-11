@@ -11,8 +11,8 @@ def main():
   for article in get_filtered_articles(u"イギリス"):
     print "article: {}".format(article["title"].encode("utf8"))
     _article = re.sub(re_emphasis, "", article["text"])
-    infos = [x.group(1, 2) for x in re_info.finditer(_article)]
-    for k, v in dict(infos).items():
+    info_dic = {x.group(1): x.group(2) for x in re_info.finditer(_article)}
+    for k, v in info_dic.items():
       print k, v
 
 if __name__ == '__main__':

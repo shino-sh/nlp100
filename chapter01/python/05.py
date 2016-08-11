@@ -11,9 +11,9 @@ def main():
   sentence = "I am an NLPer"
   words = sentence.translate(None, ',.').split(" ")
   word_bigram = gen_ngram(words, 2)
-  char_bigram = [gen_ngram(word, 2) for word in words]
-  char_bigram.remove([])
-  print word_bigram, char_bigram
+  char_bigram = gen_ngram(sentence, 2)
+  print word_bigram
+  print char_bigram
 
 if __name__ == '__main__':
   main()

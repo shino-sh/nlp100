@@ -3,7 +3,7 @@
 
 def cipher(text):
   def cipher_char(char):
-    return chr(219 - ord(char)) if char.islower() else char
+    return chr(219 - ord(char)) if char.isalpha() and char.islower() else char
 
   cipher_text = [ cipher_char(char) for char in text ]
   return "".join(cipher_text) 

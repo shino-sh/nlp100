@@ -5,4 +5,4 @@ echo_and_do () {
   eval "$1"
 }
 
-echo_and_do "cut -f 1 hightemp.txt | sort | uniq"
+echo_and_do "cut -f 1 hightemp.txt | sort | uniq -c | sort -r"
